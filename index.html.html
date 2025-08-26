@@ -1,0 +1,903 @@
+    <!-- Payment Modals -->
+    <div id="transfer-modal" class="payment-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('transfer-modal')">&times;</button>
+            <div class="payment-info">
+                <h4>🏦 Transferencia Mercado Pago</h4>
+                <div class="bank-details">
+                    <p><strong>Banco:</strong> Mercado Pago</p>
+                    <p><strong>Tipo de cuenta:</strong> Vista</p>
+                    <p><strong>Número de cuenta:</strong> 1041111429
+                        <button class="copy-btn" onclick="copyToClipboard('1041111429')">Copiar</button>
+                    </p>
+                    <p><strong>RUT:</strong> 18.461.153-8</p>
+                    <p><strong>Titular:</strong> Daniela Andrea Bustos Villanueva</p>
+                    <p><strong>Monto:</strong> $22.000</p>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.9rem;">
+                    <strong>📱 Envía tu comprobante por WhatsApp:</strong><br>
+                    <a href="https://wa.me/56991281783" target="_blank" style="color: var(--coral);">Haz clic aquí para enviar comprobante</a>
+                </p>
+            </div>
+        </div>
+    </div><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceremonia de Cacao con Limpieza Energética</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --brown: #9b7d61;
+            --coral: #daa38f;
+            --cream: #e9d7c0;
+            --sage: #92ada4;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sage) 100%);
+            min-height: 100vh;
+            color: var(--brown);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--coral);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--brown);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--coral);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(rgba(233, 215, 192, 0.8), rgba(146, 173, 164, 0.8));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--brown);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--sage);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--coral);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+            box-shadow: 0 8px 25px rgba(218, 163, 143, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(218, 163, 143, 0.4);
+        }
+
+        /* Info Cards */
+        .info-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, var(--cream), var(--white));
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(155, 125, 97, 0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid var(--sage);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--brown);
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: var(--sage);
+        }
+
+        /* Event Details */
+        .details {
+            background: var(--brown);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .detail-item {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .detail-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--cream);
+        }
+
+        .detail-item p {
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        /* What to Expect */
+        .experience {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--sage), var(--cream));
+        }
+
+        .experience h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--brown);
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--coral);
+        }
+
+        .benefit h4 {
+            color: var(--brown);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--coral);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .urgency {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                padding: 0 10px;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card {
+                padding: 30px 20px;
+                margin: 0 10px;
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .benefits {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .benefit {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .modal-content {
+                margin: 20px;
+                padding: 30px 20px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+            
+            .payment-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .payment-btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+            
+            .flow-main {
+                font-size: 1.2rem !important;
+                padding: 18px 25px !important;
+            }
+            
+            .final-cta h2 {
+                font-size: 2rem;
+                padding: 0 10px;
+            }
+            
+            .bank-details {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .bank-details p {
+                margin-bottom: 8px;
+                word-break: break-word;
+            }
+            
+            .copy-btn {
+                display: block;
+                margin: 8px 0 0 0;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-item {
+                padding: 20px;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .card-icon {
+                font-size: 2.5rem;
+            }
+            
+            .floating-element {
+                display: none;
+            }
+            
+            .payment-section {
+                padding: 20px 15px;
+            }
+            
+            .urgency {
+                padding: 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Payment Buttons */
+        .payment-section {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .payment-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .payment-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--brown);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .payment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--coral);
+        }
+
+        .payment-btn span {
+            font-size: 1.2rem;
+        }
+
+        .flow-main {
+            background: linear-gradient(135deg, var(--coral), var(--brown)) !important;
+            color: white !important;
+            font-size: 1.1rem !important;
+            padding: 15px 25px !important;
+            box-shadow: 0 8px 25px rgba(218, 163, 143, 0.4);
+            border: 2px solid var(--coral) !important;
+            animation: pulse 2s infinite;
+        }
+
+        .flow-main:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(218, 163, 143, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(218, 163, 143, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(218, 163, 143, 0.7);
+            }
+        }
+
+        .whatsapp-pay {
+            background: linear-gradient(135deg, #25d366, #128c7e) !important;
+            color: white !important;
+        }
+
+        .whatsapp-pay:hover {
+            border-color: #25d366 !important;
+        }
+
+        /* Payment Modal */
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--brown);
+        }
+
+        .payment-info {
+            margin: 20px 0;
+        }
+
+        .payment-info h4 {
+            color: var(--brown);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .bank-details {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .copy-btn {
+            background: var(--coral);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--brown);
+        }
+
+        .contact-buttons {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-buttons h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-cacao {
+            top: 200px;
+            right: 100px;
+            font-size: 2rem;
+            color: var(--coral);
+            opacity: 0.7;
+        }
+
+        .floating-energy {
+            top: 300px;
+            left: 80px;
+            font-size: 1.5rem;
+            color: var(--sage);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">🌟 Ceremonia Sagrada</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#detalles">Detalles</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#reservar">Reservar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating Elements -->
+    <div class="floating-element floating-cacao">🍫</div>
+    <div class="floating-element floating-energy">✨</div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>¿SIENTES QUE TU ENERGÍA ESTÁ BLOQUEADA?</h1>
+            <p class="subtitle">Es momento de LIBERARTE y RENACER 💫</p>
+            <a href="https://www.flow.cl/btn.php?token=qd13d88c06b2c65c2c5f47fed9c1fef176c45642" target="_blank" class="cta-button">RESERVA TU LUGAR AHORA</a>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: var(--brown); margin-bottom: 20px;">
+                🌟 CEREMONIA DE CACAO CON LIMPIEZA ENERGÉTICA 🌟
+            </h2>
+            
+            <div class="info-cards">
+                <div class="card fade-in">
+                    <span class="card-icon">🚫</span>
+                    <h3>DEJA ATRÁS</h3>
+                    <p>El cansancio energético que no te deja avanzar. Los bloqueos emocionales que cargas hace tiempo. La sensación de estar desconectado de ti mismo.</p>
+                </div>
+                
+                <div class="card fade-in">
+                    <span class="card-icon">🌈</span>
+                    <h3>Y RECIBE</h3>
+                    <p>La medicina sagrada del cacao que abre tu corazón. Limpieza profunda de TODOS tus cuerpos. Renovación total de tu campo energético.</p>
+                </div>
+                
+                <div class="card fade-in">
+                    <span class="card-icon">💎</span>
+                    <h3>TRANSFORMACIÓN</h3>
+                    <p>Sal completamente renovado, equilibrado y con una nueva claridad interior. Una experiencia que cambiará tu vibración.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="details" id="detalles">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">DETALLES DEL EVENTO</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Todo lo que necesitas saber</p>
+            
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h4>📅 FECHA</h4>
+                    <p>Domingo 31 de Agosto</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>⏰ HORA</h4>
+                    <p>18:00 hrs</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>⏳ DURACIÓN</h4>
+                    <p>90 minutos aproximadamente</p>
+                </div>
+                
+                <div class="detail-item">
+                    <h4>💰 INVERSIÓN</h4>
+                    <p>$22.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experiencia">
+        <div class="container">
+            <h2>QUÉ VIVIRÁS EN ESTA CEREMONIA</h2>
+            
+            <div class="benefits">
+                <div class="benefit">
+                    <h4>🍫 Medicina Sagrada del Cacao</h4>
+                    <p>El cacao ceremonial abrirá tu corazón, elevará tu vibración y te conectará con tu esencia más pura. Una experiencia de amor y sanación profunda.</p>
+                </div>
+                
+                <div class="benefit">
+                    <h4>🔮 Limpieza Energética Completa</h4>
+                    <p>Trabajaremos en la purificación de todos tus cuerpos: físico, emocional, mental y astral. Liberarás bloqueos acumulados y renovarás tu campo energético.</p>
+                </div>
+                
+                <div class="benefit">
+                    <h4>✨ Renovación Profunda</h4>
+                    <p>Sentirás una transformación real desde la primera sesión. Tu energía fluirá libremente y experimentarás una nueva claridad interior.</p>
+                </div>
+                
+                <div class="benefit">
+                    <h4>🧘‍♀️ Círculo Sagrado</h4>
+                    <p>Compartirás esta experiencia en un espacio íntimo y seguro, rodeado de personas que buscan su propia transformación y crecimiento espiritual.</p>
+                </div>
+                
+                <div class="benefit">
+                    <h4>💫 Conexión Espiritual</h4>
+                    <p>Reconectarás contigo mismo a un nivel profundo, encontrando la paz interior y el equilibrio que has estado buscando.</p>
+                </div>
+                
+                <div class="benefit">
+                    <h4>🌱 Crecimiento Personal</h4>
+                    <p>Esta ceremonia marca el inicio de un nuevo capítulo en tu vida. Saldrás con herramientas y una nueva perspectiva para continuar tu camino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="reservar">
+        <div class="container">
+            <h2>🎯 ¿ESTÁS PREPARADO PARA TU TRANSFORMACIÓN?</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 20px;">Tu nueva versión te está esperando</p>
+            
+            <div class="urgency">
+                ⚡ CUPOS LIMITADOS - Solo para quienes están listos para cambiar ⚡<br>
+                <span style="font-size: 0.9rem; opacity: 0.9;">Pago seguro con Flow - Acepta todas las tarjetas</span>
+            </div>
+            
+            <!-- Payment Options -->
+            <div class="payment-section" style="margin: 30px 0;">
+                <h3 style="margin-bottom: 25px; font-size: 1.5rem;">💳 MÉTODOS DE PAGO DISPONIBLES</h3>
+                
+                <div class="payment-buttons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                    <a href="https://www.flow.cl/btn.php?token=qd13d88c06b2c65c2c5f47fed9c1fef176c45642" target="_blank" class="payment-btn flow-main">
+                        <span>💳</span> PAGAR AHORA - $22.000
+                    </a>
+                    <a href="#" class="payment-btn transfer" onclick="openPayment('transfer')">
+                        <span>🏦</span> Transferencia Mercado Pago
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-buttons" style="margin: 20px 0;">
+                <h4 style="margin-bottom: 15px;">¿Tienes dudas sobre la ceremonia?</h4>
+                <a href="https://wa.me/56991281783" class="cta-button" style="margin: 10px; font-size: 1rem;">💬 ESCRIBIR POR WHATSAPP</a>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: rgba(255,255,255,0.2); border-radius: 15px;">
+                <h3 style="margin-bottom: 15px;">🌟 DOMINGO 31 DE AGOSTO - 18:00 HRS 🌟</h3>
+                <p style="font-size: 1.1rem;">90 minutos que cambiarán tu vibración | $22.000</p>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+                No esperes más. Tu momento de transformación es AHORA.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--brown); color: white; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2025 Ceremonia Sagrada de Cacao. Todos los derechos reservados.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Sanación • Transformación • Renovación</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and benefits
+        document.querySelectorAll('.card, .benefit, .detail-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add floating particles effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.innerHTML = Math.random() > 0.5 ? '✨' : '🌟';
+            particle.style.position = 'fixed';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = '100vh';
+            particle.style.fontSize = '20px';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '999';
+            particle.style.animation = 'particleFloat 8s linear';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Add particle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleFloat {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Function to open payment modals
+        function openPayment(paymentType) {
+            const modal = document.getElementById(paymentType + '-modal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Function to close modals
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Function to copy text to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Número de cuenta copiado: ' + text);
+            }, function(err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('Número de cuenta copiado: ' + text);
+                } catch (err) {
+                    alert('Error al copiar. Número de cuenta: ' + text);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.payment-modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
